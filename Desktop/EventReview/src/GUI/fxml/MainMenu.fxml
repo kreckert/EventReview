@@ -21,9 +21,9 @@
 
         <VBox alignment="CENTER" spacing="10">
 
-            <Button text="New Event" prefWidth="200"
+            <Button text="New Application.Event" prefWidth="200"
                     onAction="#goToSceneAddEvent" GridPane.rowIndex="1"/>
-            <Button text="New Event Rating" prefWidth="200"
+            <Button text="New Application.Event Rating" prefWidth="200"
                     onAction="#goToSceneAddEventRating" GridPane.rowIndex="2"/>
             <Button text="import Events from CSV" prefWidth="200"
                     onAction="#loadEventCSVFile" GridPane.rowIndex="3"/>

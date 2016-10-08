@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Map;
+package Application;
 
 /**
  * Created by kylereckert on 10/8/16.
@@ -55,6 +54,7 @@ public class EventListWrapper {
         EventToCSV.addEvent(event);
         updateLists();
     }
+
 
     /**
      * creates rating and adds it to CSV

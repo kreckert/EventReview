@@ -1,3 +1,5 @@
+package Application;
+
 import java.util.ArrayList;
 
 /**
@@ -83,13 +85,13 @@ public class Event {
 /*
     public void addRating(int score, String author) {
 
-        EventRating rating = new EventRating(score, author);
+        Application.EventRating rating = new Application.EventRating(score, author);
         ratings.add(rating);
     }
 
     public void addRating(int score, String comment, String author) {
 
-        EventRating rating = new EventRating(score, comment, author);
+        Application.EventRating rating = new Application.EventRating(score, comment, author);
         ratings.add(rating);
     }
 */

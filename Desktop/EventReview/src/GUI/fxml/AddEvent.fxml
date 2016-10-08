@@ -14,7 +14,7 @@
         <Insets top="25" right="25" bottom="25" left="25"/>
     </padding>
 
-    <Text text="Event Details"
+    <Text text="Application.Event Details"
           GridPane.columnIndex="0" GridPane.rowIndex="0"
           GridPane.columnSpan="2"/>
 
@@ -52,7 +52,7 @@
           GridPane.columnIndex="1" GridPane.rowIndex="8">
         <Button text="Back"
                 onAction="#backToMainMenu"/>
-        <Button text="Add Event"
+        <Button text="Add Application.Event" onAction="#addEventToCSV"
                 />
     </HBox>
 

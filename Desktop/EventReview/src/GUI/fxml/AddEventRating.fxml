@@ -20,7 +20,7 @@
           GridPane.columnIndex="0" GridPane.rowIndex="0"
           GridPane.columnSpan="2"/>
 
-    <Label text="Event's name:"
+    <Label text="Application.Event's name:"
            GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 
     <TextField fx:id="eventNameField"
@@ -64,7 +64,7 @@
           GridPane.columnIndex="1" GridPane.rowIndex="6">
         <Button text="Back"
                 onAction="#backToMainMenu"/>
-        <Button text="Submit Rating" onAction="#goToSceneAddEventRating"
+        <Button text="Submit Rating" onAction="#addRatingToCSV"
                 />
     </HBox>
 

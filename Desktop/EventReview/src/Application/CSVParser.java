@@ -8,9 +8,10 @@ import java.util.*;
  */
 public class CSVParser {
 
-    private Map<String,Event> events; // String is Event Name, Event name is unique
-    private ArrayList<EventRating> ratings; // String is Event Name, Event name is unique
+    private Map<String,Event> events; //String is Event Name, Event name is unique
+    private ArrayList<EventRating> ratings;//String is Event Name, Event name is unique
     private BufferedReader bufferedReader;
+
 
     public CSVParser() {
         events = new HashMap<>();

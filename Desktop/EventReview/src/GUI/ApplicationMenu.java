@@ -48,7 +48,7 @@ public class ApplicationMenu extends Application {
 
 
         primaryStage.setScene(sceneMainMenu);
-        primaryStage.setTitle("Event Reviewer");
+        primaryStage.setTitle("Application.Event Reviewer");
         primaryStage.show();
 
 
