@@ -16,7 +16,7 @@ public class CSVParser {
     private BufferedReader bufferedReader;
 
 
-    public CSVParser(String pathToCSV) {
+    public CSVParser() {
         events = new ArrayList<>();
         ratings = new ArrayList<>();
     }
