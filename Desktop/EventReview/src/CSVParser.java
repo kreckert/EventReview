@@ -26,7 +26,7 @@ public class CSVParser {
      */
     public Map<String,Event> parseEvents(String eventCSVFile) {
         if (eventCSVFile != null) {
-            String line, name, date, organizer;
+            String line, name, date, location, organizer;
             int costOfTicket;
 
             try {
@@ -36,8 +36,9 @@ public class CSVParser {
                     List<String> eventAttributes = Arrays.asList(line.split("\\s*,\\s*"));
                     name = eventAttributes.get(0);
                     date = eventAttributes.get(1);
-                    costOfTicket = Integer.valueOf(eventAttributes.get(2));
-                    organizer = eventAttributes.get(3);
+                    location = eventAttributes.get(2);
+                    costOfTicket = Integer.valueOf(eventAttributes.get(3));
+                    organizer = eventAttributes.get(4);
 
                     Event event = new Event(name);
                     event.setDate(date);
