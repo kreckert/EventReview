@@ -21,11 +21,16 @@ public class CSVParser {
         ratings = new ArrayList<>();
     }
 
+    /**
+     * Parses a csv file which includes all the events
+     *
+     * @param eventCSVFile the csv file
+     * @return Returns all the events in a arrayList
+     */
     public List<Event> parseEvents(String eventCSVFile) {
         if (eventCSVFile != null) {
-            String line,name,date,organizer;
-            float costOfTicket;
-
+            String line, name, date, organizer;
+            int costOfTicket;
 
             try {
                 bufferedReader = new BufferedReader(new FileReader(eventCSVFile));
@@ -34,14 +39,58 @@ public class CSVParser {
                     List<String> eventAttributes = Arrays.asList(line.split("\\s*,\\s*"));
                     name = eventAttributes.get(0);
                     date = eventAttributes.get(1);
-                    costOfTicket = Float.valueOf(eventAttributes.get(2));
+                    costOfTicket = Integer.valueOf(eventAttributes.get(2));
                     organizer = eventAttributes.get(3);
-                    events.add(new Event(name,date,))
 
+                    Event event = new Event(name);
+                    event.setDate(date);
+                    event.setCostOfTicket(costOfTicket);
+                    event.setOrganizer(organizer);
+
+                    events.add(event);
                 }
             } catch (IOException | IllegalArgumentException e) {
                 e.printStackTrace();
             }
+            return events;
         }
+        return null;
     }
+
+    /**
+     * Parses a csv file which includes all the events
+     *
+     * @param eventCSVFile the csv file
+     * @return Returns all the events in a arrayList
+     */
+    /*public List<Event> parseEvents(String eventCSVFile) {
+        if (eventCSVFile != null) {
+            String line, name, date, organizer;
+            int costOfTicket;
+
+            try {
+                bufferedReader = new BufferedReader(new FileReader(eventCSVFile));
+                while ((line = bufferedReader.readLine()) != null) {
+
+                    List<String> eventAttributes = Arrays.asList(line.split("\\s*,\\s*"));
+                    name = eventAttributes.get(0);
+                    date = eventAttributes.get(1);
+                    costOfTicket = Integer.valueOf(eventAttributes.get(2));
+                    organizer = eventAttributes.get(3);
+
+                    Event event = new Event(name);
+                    event.setDate(date);
+                    event.setCostOfTicket(costOfTicket);
+                    event.setOrganizer(organizer);
+
+                    events.add(event);
+                }
+            } catch (IOException | IllegalArgumentException e) {
+                e.printStackTrace();
+            }
+            return events;
+        }
+        return null;
+    }
+*/
 }

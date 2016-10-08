@@ -17,7 +17,7 @@ public class EventIllustrator {
     public EventIllustrator() {
         events = new ArrayList<>();
         ratings = new ArrayList<>();
-        csvParser = new
+       // csvParser = new
     }
 
     public void illustrate() {
