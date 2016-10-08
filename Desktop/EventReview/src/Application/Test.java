@@ -16,18 +16,15 @@ public class Test {
     }
 
     /**
-     * generates a price
-     *
+     * Generates a random price
      * @return
      */
     public static int generateCost() {
-
         return (int) Math.floor(Math.random() * 50);
     }
 
     /**
-     * 0-10
-     *
+     * Generates a rating from 0 to 10
      * @return
      */
     public static int generateRating() {
@@ -37,7 +34,6 @@ public class Test {
 
     /**
      * any month in 2016
-     *
      * @return
      */
     public static String generateDate() {

@@ -92,7 +92,8 @@ public class CSVParser {
     }
 
     /**
-     * Add the ratings in the events*/
+     * Add the ratings in the events
+     */
     public Map<String,Event> assignRatingsToEvents(Map<String,Event> events, ArrayList<EventRating> ratings) {
         if (events != null && ratings != null) {
             HashMap<String, Event> eventsTemp = (HashMap) events;
