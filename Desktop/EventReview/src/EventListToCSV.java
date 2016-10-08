@@ -9,7 +9,7 @@ public class EventListToCSV {
     public static void createCSV() {
         try {
             PrintWriter writer = new PrintWriter("events.csv");
-            writer.print("name,friendsGoing,costOfTicket,organizer");
+            writer.print("name,date,costOfTicket,organizer");
             writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
