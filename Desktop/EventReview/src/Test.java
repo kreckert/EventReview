@@ -8,14 +8,27 @@ public class Test {
     public static void main(String[] args) {
 
         EventToCSV.createCSV();
+        RatingsListCSV.createCSV();
 
         for (int i = 0; i < 100; i++) {
-            Event event = new Event("EVENT" + generateName());
+
+            //creates random event
+            String eventName = "EVENT" + generateName();
+            Event event = new Event(eventName);
             event.setDate(generateDate());
             event.setLocation("LOC" + generateName());
             event.setCostOfTicket(generateCost());
             event.setOrganizer("ORG" + generateName());
             EventToCSV.addEvent(event);
+
+            //creates random event rating
+            for (int j = 0; j < 100; j++) {
+
+                EventRating eventRating = new EventRating(eventName, "AUTH" + generateName(),
+                       generateRating() , "COM" + generateName());
+                RatingsListCSV.addEventRating(eventRating);
+
+            }
         }
 
         CSVParser parser = new CSVParser();
@@ -26,6 +39,11 @@ public class Test {
     public static int generateCost() {
 
         return (int) Math.floor(Math.random() * 50);
+    }
+
+    public static int generateRating() {
+
+        return (int) Math.floor(Math.random() * 11);
     }
 
     public static String generateDate() {
