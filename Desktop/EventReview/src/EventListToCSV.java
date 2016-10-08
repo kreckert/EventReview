@@ -19,7 +19,7 @@ public class EventListToCSV {
     public static void addEntry(Event event) {
         StringBuilder entryBuilder = new StringBuilder();
         entryBuilder.append(event.getName());
-        entryBuilder.append(event.getFriendsGoing());
+        entryBuilder.append(event.getDate());
         entryBuilder.append(event.getCostOfTicket());
         entryBuilder.append(event.getOrganizer());
 
