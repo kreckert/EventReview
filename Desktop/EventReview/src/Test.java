@@ -1,3 +1,5 @@
+import java.util.Random;
+
 /**
  * Created by ryosukeminami on 08/10/16.
  */
@@ -5,26 +7,20 @@ public class Test {
 
     public static void main(String[] args) {
 
-        /*
-        Event hackTheBubble = new Event("Hack the Bubble");
-        hackTheBubble.setDate("08-10-2016");
-        hackTheBubble.setLocation("Jack Cole");
-        hackTheBubble.setCostOfTicket(0);
-        hackTheBubble.setOrganizer("STACS");
-
         EventToCSV.createCSV();
-        EventToCSV.addEvent(hackTheBubble);
 
+        for (int i = 0; i < 100; i++) {
+            Event event = new Event("EVENT" + generateName());
+            event.setDate(generateDate());
+            event.setLocation("LOC" + generateName());
+            event.setCostOfTicket(generateCost());
+            event.setOrganizer("ORG" + generateName());
+            EventToCSV.addEvent(event);
+        }
 
         CSVParser parser = new CSVParser();
 
         parser.parseEvents("events.csv");
-        */
-
-        for (int i = 0; i < 100; i++) {
-            //System.out.println(generateCost());
-            System.out.println(generateDate());
-        }
     }
 
     public static int generateCost() {
@@ -38,5 +34,16 @@ public class Test {
         int month = (int) Math.floor(Math.random() * 12) + 1;
 
         return day + "-" + month + "-" + "2016";
+    }
+
+    public static String generateName() {
+
+        Random r = new Random();
+        String alphabet = "qwertyuiopasdfghjklzxcvbnm";
+        String returnString = "";
+        for (int i = 0; i < 5; i++) {
+            returnString = returnString + alphabet.charAt(r.nextInt(alphabet.length()));
+        }
+        return returnString;
     }
 }
