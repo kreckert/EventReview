@@ -12,6 +12,7 @@ public class Test {
         EventToCSV.createCSV();
         EventToCSV.addEvent(hackTheBubble);
 
+
         CSVParser parser = new CSVParser();
 
         parser.parseEvents("events.csv");

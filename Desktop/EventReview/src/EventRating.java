@@ -4,27 +4,28 @@
  */
 public class EventRating {
 
-    private int score;//0 to 10
+    private Event event;
+    private String author;
+    private int rating; //0 to 10
     private String comment;
-    private String Author;
 
-    public EventRating(int score, String author) {
-        this.score = score;
-        Author = author;
+    public EventRating(Event event, String author, int rating, String comment) {
+        this.event = event;
+        this.author = author;
+        this.rating = rating;
+        this.comment = comment;
     }
 
-    public EventRating(int score, String comment, String author) {
-        this.score = score;
-        this.comment = comment;
-        Author = author;
+    public Event getEvent() {
+        return event;
     }
 
     public String getAuthor() {
-        return Author;
+        return author;
     }
 
-    public int getScore() {
-        return score;
+    public int getRating() {
+        return rating;
     }
 
     public String getComment() {
