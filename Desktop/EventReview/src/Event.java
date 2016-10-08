@@ -37,11 +37,13 @@ public class Event {
     public void addRating(int score, String author) {
 
         EventRating rating = new EventRating(score, author);
+        ratings.add(rating);
     }
 
     public void addRating(int score, String comment, String author) {
 
         EventRating rating = new EventRating(score, comment, author);
+        ratings.add(rating);
     }
 
     public int getScore() {
