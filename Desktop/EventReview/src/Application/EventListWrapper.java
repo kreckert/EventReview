@@ -97,8 +97,7 @@ public class EventListWrapper {
         updateRatings();
         ArrayList<EventRating> returnList = new ArrayList<>();
 
-        for (EventRating eventRating :
-                ratings) {
+        for (EventRating eventRating : ratings) {
             if (eventRating.getEventName().equals(eventName)){
                 returnList.add(eventRating);
             }
