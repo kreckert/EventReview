@@ -8,9 +8,12 @@ public class CSVWriter {
 
     public static void createCSV() {
 
+
+
         try {
             PrintWriter writer = new PrintWriter("events.csv");
             writer.print("name,rating,numOfRatings,friendsGoing,costOfTicket,organizer");
+            writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -23,7 +26,7 @@ public class CSVWriter {
 
     public static void main(String[] args) {
         createCSV();
-        addEntry(null);
+        // addEntry(null);
     }
 
 }
