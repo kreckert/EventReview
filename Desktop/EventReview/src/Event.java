@@ -17,6 +17,10 @@ public class Event {
     public Event(String name) {
 
         this.name = name;
+        //default values
+        date = "";
+        costOfTicket = -1;
+        organizer = "";
     }
 
     public void setName(String name) {
