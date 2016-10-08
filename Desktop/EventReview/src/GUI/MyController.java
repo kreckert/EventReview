@@ -76,6 +76,7 @@ public class MyController implements Initializable {
 
     }
 
+    @FXML
     public void quitApplication(ActionEvent event) {
         System.exit(0);
     }
