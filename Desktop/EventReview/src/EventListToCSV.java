@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 /**
  * Created by ryosukeminami on 08/10/16.
  */
-public class EventList {
+public class EventListToCSV {
 
     public static void createCSV() {
         try {
