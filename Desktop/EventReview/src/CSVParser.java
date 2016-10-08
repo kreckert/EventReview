@@ -2,23 +2,21 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOError;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by td41 on 08/10/16.
  */
 public class CSVParser {
 
-    private List<Event> events;
-    private List<EventRating> ratings;
+    private Map<String,Event> events; //String is Event Name, Event name is unique
+    private Map<String,EventRating> ratings;//String is Event Name, Event name is unique
     private BufferedReader bufferedReader;
 
 
     public CSVParser() {
-        events = new ArrayList<>();
-        ratings = new ArrayList<>();
+        events = new HashMap<>();
+        ratings = new HashMap<>();
     }
 
     /**
@@ -27,7 +25,7 @@ public class CSVParser {
      * @param eventCSVFile the csv file
      * @return Returns all the events in a arrayList
      */
-    public List<Event> parseEvents(String eventCSVFile) {
+    public Map<String,Event> parseEvents(String eventCSVFile) {
         if (eventCSVFile != null) {
             String line, name, date, organizer;
             int costOfTicket;
@@ -47,7 +45,7 @@ public class CSVParser {
                     event.setCostOfTicket(costOfTicket);
                     event.setOrganizer(organizer);
 
-                    events.add(event);
+                    events.put(name,event);
                 }
             } catch (IOException | IllegalArgumentException e) {
                 e.printStackTrace();
@@ -58,30 +56,27 @@ public class CSVParser {
     }
 
     /**
-     * Parses a csv file which includes all the events
+     * Parses a csv file which includes all the ratings
      *
-     * @param eventCSVFile the csv file
+     * @param ratingsCSVFile the csv file
      * @return Returns all the events in a arrayList
      */
-    /*public List<Event> parseEvents(String eventCSVFile) {
-        if (eventCSVFile != null) {
-            String line, name, date, organizer;
-            int costOfTicket;
+    public List<EventRating> parseEventRatings(String ratingsCSVFile) {
+        if (ratingsCSVFile != null) {
+            String line;
+
 
             try {
-                bufferedReader = new BufferedReader(new FileReader(eventCSVFile));
+                bufferedReader = new BufferedReader(new FileReader(ratingsCSVFile));
                 while ((line = bufferedReader.readLine()) != null) {
 
                     List<String> eventAttributes = Arrays.asList(line.split("\\s*,\\s*"));
-                    name = eventAttributes.get(0);
-                    date = eventAttributes.get(1);
-                    costOfTicket = Integer.valueOf(eventAttributes.get(2));
-                    organizer = eventAttributes.get(3);
+                    String eventName = eventAttributes.get(0);
+                    String author = eventAttributes.get(1);
+                    int score = Integer.valueOf(eventAttributes.get(2));
+                    String comment = eventAttributes.get(3);
 
-                    Event event = new Event(name);
-                    event.setDate(date);
-                    event.setCostOfTicket(costOfTicket);
-                    event.setOrganizer(organizer);
+                    EventRating rating = new EventRating(score,author,comment);
 
                     events.add(event);
                 }
@@ -93,4 +88,5 @@ public class CSVParser {
         return null;
     }
 */
+
 }
