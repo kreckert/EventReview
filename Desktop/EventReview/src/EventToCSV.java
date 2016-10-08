@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 /**
  * Created by ryosukeminami on 08/10/16.
  */
-public class EventListToCSV {
+public class EventToCSV {
 
     public static void createCSV() {
         try {
@@ -16,20 +16,26 @@ public class EventListToCSV {
         }
     }
 
-    public static void addEntry(Event event) {
+    public static void addEvent(Event event) {
         StringBuilder entryBuilder = new StringBuilder();
         entryBuilder.append(event.getName());
-        entryBuilder.append(event.getFriendsGoing());
+        entryBuilder.append(event.getDate());
         entryBuilder.append(event.getCostOfTicket());
         entryBuilder.append(event.getOrganizer());
 
+        PrintWriter writer = null;
+
         try {
-            PrintWriter writer = new PrintWriter("events.csv");
+            writer = new PrintWriter("events.csv");
             writer.print(entryBuilder.toString());
             writer.close();
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                writer.close();
+            }
         }
     }
 }
