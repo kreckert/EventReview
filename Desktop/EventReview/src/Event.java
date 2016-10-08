@@ -19,22 +19,6 @@ public class Event {
         numOfRatings = 0;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setFriendsGoing(int friendsGoing) {
-        this.friendsGoing = friendsGoing;
-    }
-
-    public void setCostOfTicket(int costOfTicket) {
-        this.costOfTicket = costOfTicket;
-    }
-
-    public void setOrganizer(String organizer) {
-        this.organizer = organizer;
-    }
-
     public void addRating(int userRating) {
 
         if (userRating >= 0 && userRating <= 1) {
@@ -42,12 +26,5 @@ public class Event {
             rating = ((rating * numOfRatings) + userRating)/(numOfRatings + 1);
             numOfRatings++;
         }
-    }
-
-    public void printDescription() {
-
-        System.out.println(name + ":");
-        System.out.println("Cost of Ticket: " + costOfTicket);
-        System.out.println("Organizer:" + organizer);
     }
 }
