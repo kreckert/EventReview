@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Event {
 
     private String name;
-    private ArrayList<EventRating> ratings = new ArrayList<>();
+    private ArrayList<EventRating> ratings = new ArrayList<>();//all rating for event
 
     //criteria for rating
     private int friendsGoing;
