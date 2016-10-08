@@ -35,6 +35,8 @@ public class CSVParser {
                     name = eventAttributes.get(0);
                     date = eventAttributes.get(1);
                     costOfTicket = Float.valueOf(eventAttributes.get(2));
+                    organizer = eventAttributes.get(3);
+                    events.add(new Event(name,date,))
 
                 }
             } catch (IOException | IllegalArgumentException e) {
