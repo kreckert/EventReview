@@ -9,7 +9,7 @@ public class Event {
     private ArrayList<EventRating> ratings = new ArrayList<>();//all rating for event
 
     //criteria for rating
-    private int friendsGoing;
+    private String date;
     private int costOfTicket;
     private String organizer;
 
@@ -18,12 +18,36 @@ public class Event {
         this.name = name;
     }
 
-    public String getName() {
-        return name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getFriendsGoing() {
-        return friendsGoing;
+    public void setRatings(ArrayList<EventRating> ratings) {
+        this.ratings = ratings;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setCostOfTicket(int costOfTicket) {
+        this.costOfTicket = costOfTicket;
+    }
+
+    public void setOrganizer(String organizer) {
+        this.organizer = organizer;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public ArrayList<EventRating> getRatings() {
+        return ratings;
+    }
+
+    public String getName() {
+        return name;
     }
 
     public int getCostOfTicket() {
@@ -47,7 +71,7 @@ public class Event {
     }
 
     public int getScore() {
-        if (ratings.size() == 0)
+        if (ratings.size() == 0) //returns -1 if there are no ratings
             return -1;
 
         int score = 0;
