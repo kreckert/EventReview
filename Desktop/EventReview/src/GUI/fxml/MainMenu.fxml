@@ -3,16 +3,9 @@
 
 <?import javafx.geometry.*?>
 <?import javafx.scene.layout.*?>
-
-
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.control.Button?>
-<!--<GridPane fx:controller="GUI.MyController"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
-          styleClass="root" >
-    <padding>
-        <Insets top="25" right="25" bottom="25" left="25"/>
-    </padding> -->
+
 <BorderPane fx:controller="GUI.MyController"
             xmlns:fx="http://javafx.com/fxml" >
     <padding>
@@ -29,9 +22,9 @@
         <VBox alignment="CENTER" spacing="10">
 
             <Button text="New Event" prefWidth="200"
-                    onAction="#addEvent" GridPane.rowIndex="1"/>
+                    onAction="#goToSceneAddEvent" GridPane.rowIndex="1"/>
             <Button text="New Event Rating" prefWidth="200"
-                    onAction="#addEventRating" GridPane.rowIndex="2"/>
+                    onAction="#goToSceneAddEventRating" GridPane.rowIndex="2"/>
             <Button text="import Events from CSV" prefWidth="200"
                     onAction="#loadEventCSVFile" GridPane.rowIndex="3"/>
             <Button text="import Ratings from CSV" prefWidth="200"
@@ -39,7 +32,7 @@
             <Button text="Assign ratings" prefWidth="200"
                     onAction="#assignRatingsToEvents" GridPane.rowIndex="5"/>
             <Button text="Quit" prefWidth="200"
-                    onAction="#quitApplication" GridPane.rowIndex="5"/>
+                    onAction="#backToMainMenu" GridPane.rowIndex="5"/>
         </VBox>
     </center>
 

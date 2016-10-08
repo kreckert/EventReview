@@ -50,8 +50,10 @@
 
     <HBox spacing="10" alignment="bottom_right"
           GridPane.columnIndex="1" GridPane.rowIndex="8">
+        <Button text="Back"
+                onAction="#backToMainMenu"/>
         <Button text="Add Event"
-                onAction="#addEvent"/>
+                />
     </HBox>
 
 
