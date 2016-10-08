@@ -28,16 +28,16 @@ public class RatingsListCSV {
 
     public static void addRating(EventRating rating) {
 
-        String eventName = rating.getEvent().getName().replaceAll("\\s+", "-").toLowerCase();
+        String eventName = rating.getEventName().replaceAll("\\s+", "-").toLowerCase();
         PrintWriter writer = null;
 
         try {
             writer = new PrintWriter(new FileWriter("ratings-for-" + eventName + ".csv", true));
 
             StringBuilder entry = new StringBuilder();
-            entry.append(rating.getEvent().getName());
+            entry.append(rating.getEventName());
             entry.append(rating.getAuthor());
-            entry.append(rating.getRating());
+            entry.append(rating.getRatingScore());
             entry.append(rating.getComment());
 
             writer.println(entry.toString());

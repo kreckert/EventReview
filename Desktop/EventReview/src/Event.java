@@ -72,20 +72,33 @@ public class Event {
     public String getOrganizer() {
         return organizer;
     }
+    public boolean addRating(EventRating eventRating) {
+        if(eventRating != null) {
+            ratings.add(eventRating);
+            return true;
+        }
+        return false;
+    }
+/*
+    public void addRating(int score, String author) {
 
-    public void addRating(int score, String comment, String author) {
-
-        EventRating rating = new EventRating(this, author, score, comment);
+        EventRating rating = new EventRating(score, author);
         ratings.add(rating);
     }
 
+    public void addRating(int score, String comment, String author) {
+
+        EventRating rating = new EventRating(score, comment, author);
+        ratings.add(rating);
+    }
+*/
     public int getScore() {
         if (ratings.size() == 0) //returns -1 if there are no ratings
             return -1;
 
         int score = 0;
         for (EventRating rating: ratings) {
-            score += rating.getScore();
+            score += rating.getRatingScore();
         }
         return (score/ratings.size());
     }
