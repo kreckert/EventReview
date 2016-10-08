@@ -10,7 +10,6 @@ public class RatingsListCSV {
 
     /**
      * creates new files named eventRatings.csv
-     *
      */
     public static void createCSV() {
         try {
