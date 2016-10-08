@@ -19,6 +19,22 @@ public class Event {
         numOfRatings = 0;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getFriendsGoing() {
+        return friendsGoing;
+    }
+
+    public int getCostOfTicket() {
+        return costOfTicket;
+    }
+
+    public String getOrganizer() {
+        return organizer;
+    }
+
     public void addRating(int userRating) {
 
         if (userRating >= 0 && userRating <= 1) {
