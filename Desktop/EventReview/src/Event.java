@@ -63,15 +63,9 @@ public class Event {
         return organizer;
     }
 
-    public void addRating(int score, String author) {
-
-        EventRating rating = new EventRating(score, author);
-        ratings.add(rating);
-    }
-
     public void addRating(int score, String comment, String author) {
 
-        EventRating rating = new EventRating(score, comment, author);
+        EventRating rating = new EventRating(this, author, score, comment);
         ratings.add(rating);
     }
 
