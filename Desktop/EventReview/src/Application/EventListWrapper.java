@@ -1,5 +1,10 @@
 package Application;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * Created by kylereckert on 10/8/16.
  */
@@ -21,14 +26,20 @@ public class EventListWrapper {
         //creates both csv files
         EventToCSV.createCSV();
         RatingsListCSV.createCSV();
-        updateLists();
+        events = new HashMap<>();
+        ratings = new ArrayList<>();
     }
 
-    public void updateLists() {
+    public void updateEvents() {
+
+        csvParser.parseEvents(EVENTS_FILE_NAME);
         events = csvParser.parseEvents(EVENTS_FILE_NAME);
+    }
+
+    public void updateRatings() {
+
         ratings = csvParser.parseEventRatings(EVENTRATINGS_FILE_NAME);
         events = csvParser.assignRatingsToEvents(events, ratings);
-
     }
 
     /**
@@ -52,7 +63,7 @@ public class EventListWrapper {
 
         //adds to csv
         EventToCSV.addEvent(event);
-        updateLists();
+        //updateEvents();
     }
 
 
@@ -68,7 +79,7 @@ public class EventListWrapper {
 
         EventRating eventRating = new EventRating(eventName, author, rating, comment);
         RatingsListCSV.addEventRating(eventRating);
-        updateLists();
+        //updateRatings();
     }
 
     /**
