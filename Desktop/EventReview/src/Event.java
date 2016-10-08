@@ -1,10 +1,14 @@
+import java.util.ArrayList;
+
 /**
  * Created by kylereckert on 10/8/16.
  */
 public class Event {
 
-    private int rating;
-    private int numOfRatings;
+    // private int rating;
+    // private int numOfRatings;
+
+    private ArrayList<EventRating> ratings;
     private String name;
 
     //criteria for rating
@@ -17,6 +21,10 @@ public class Event {
         this.name = name;
         rating = 0;
         numOfRatings = 0;
+    }
+
+    public void addRating(EventRating rating) {
+
     }
 
     public String getName() {
