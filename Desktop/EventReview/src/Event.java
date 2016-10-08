@@ -27,4 +27,28 @@ public class Event {
             numOfRatings++;
         }
     }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public int getNumOfRatings() {
+        return numOfRatings;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getFriendsGoing() {
+        return friendsGoing;
+    }
+
+    public int getCostOfTicket() {
+        return costOfTicket;
+    }
+
+    public String getOrganizer() {
+        return organizer;
+    }
 }

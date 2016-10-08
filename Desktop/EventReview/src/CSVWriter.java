@@ -18,6 +18,7 @@ public class CSVWriter {
 
     public static void addEntry(Event event) {
         StringBuilder entryBuilder = new StringBuilder();
+        entryBuilder.append(event.getName());
     }
 
     public static void main(String[] args) {
