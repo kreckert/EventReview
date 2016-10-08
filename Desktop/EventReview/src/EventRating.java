@@ -6,7 +6,7 @@ public class EventRating {
 
     private Event event;
     private String author;
-    private int rating; //0 to 10
+    private int rating; // 0 to 10
     private String comment;
 
     public EventRating(Event event, String author, int rating, String comment) {
