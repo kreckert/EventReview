@@ -27,6 +27,4 @@ public class ApplicationMenu extends Application {
         primaryStage.setTitle("Event Reviewer");
         primaryStage.show();
     }
-
-
 }

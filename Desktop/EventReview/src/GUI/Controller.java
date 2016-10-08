@@ -25,7 +25,6 @@ public class Controller implements Initializable {
     //  @FXML private TextField locationField;
     //  @FXML private DatePicker dateField;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -33,6 +32,7 @@ public class Controller implements Initializable {
 
     @FXML
     private void addEvent(ActionEvent event) {
+
         resultField.setText(nameField.getText());
     }
 
