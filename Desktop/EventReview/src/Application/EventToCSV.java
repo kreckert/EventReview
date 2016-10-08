@@ -9,7 +9,6 @@ public class EventToCSV {
 
     /**
      * new CSV called events.csv
-     *
      */
     public static void createCSV() {
         try {
