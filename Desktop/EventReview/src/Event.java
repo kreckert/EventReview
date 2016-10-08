@@ -1,7 +1,8 @@
 import java.util.ArrayList;
 
 /**
- * Created by kylereckert on 10/8/16.
+ * Created by kyle reckert on 10/8/16.
+ *
  */
 public class Event {
 
@@ -75,8 +76,8 @@ public class Event {
             return -1;
 
         int score = 0;
-        for (int i = 0; i < ratings.size(); i++) {
-            score += ratings.get(i).getScore();
+        for (EventRating rating: ratings) {
+            score += rating.getScore();
         }
         return (score/ratings.size());
     }
