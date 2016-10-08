@@ -5,11 +5,8 @@ import java.util.ArrayList;
  */
 public class Event {
 
-    // private int rating;
-    // private int numOfRatings;
-
-    private ArrayList<EventRating> ratings;
     private String name;
+    private ArrayList<EventRating> ratings = new ArrayList<>();//all rating for event
 
     //criteria for rating
     private int friendsGoing;
@@ -19,12 +16,6 @@ public class Event {
     public Event(String name) {
 
         this.name = name;
-        rating = 0;
-        numOfRatings = 0;
-    }
-
-    public void addRating(EventRating rating) {
-
     }
 
     public String getName() {
@@ -43,12 +34,24 @@ public class Event {
         return organizer;
     }
 
-    public void addRating(int userRating) {
+    public void addRating(int score, String author) {
 
-        if (userRating >= 0 && userRating <= 1) {
+        EventRating rating = new EventRating(score, author);
+    }
 
-            rating = ((rating * numOfRatings) + userRating)/(numOfRatings + 1);
-            numOfRatings++;
+    public void addRating(int score, String comment, String author) {
+
+        EventRating rating = new EventRating(score, comment, author);
+    }
+
+    public int getScore() {
+        if (ratings.size() == 0)
+            return -1;
+
+        int score = 0;
+        for (int i = 0; i < ratings.size(); i++) {
+            score += ratings.get(i).getScore();
         }
+        return (score/ratings.size());
     }
 }
