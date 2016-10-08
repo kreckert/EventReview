@@ -12,27 +12,35 @@ public class Test {
 
     public static void main(String[] args) {
 
-        /*
-        CSVParser parser = new CSVParser();
-        Map<String,Event> events = parser.parseEvents("events.csv");
-        ArrayList<EventRating> ratings = parser.parseEventRatings("eventRatings.csv");
-        events = parser.assignRatingsToEvents(events, ratings)
-         */
-
         eventListWrapper = new EventListWrapper();
         fillCSVFiles();
     }
 
+    /**
+     * generates a price
+     *
+     * @return
+     */
     public static int generateCost() {
 
         return (int) Math.floor(Math.random() * 50);
     }
 
+    /**
+     * 0-10
+     *
+     * @return
+     */
     public static int generateRating() {
 
         return (int) Math.floor(Math.random() * 11);
     }
 
+    /**
+     * any month in 2016
+     *
+     * @return
+     */
     public static String generateDate() {
 
         int day = (int) Math.floor(Math.random() * 30) + 1;
@@ -41,6 +49,11 @@ public class Test {
         return day + "-" + month + "-" + "2016";
     }
 
+    /**
+     * any random 5 characters
+     *
+     * @return
+     */
     public static String generateName() {
 
         Random r = new Random();
@@ -52,6 +65,9 @@ public class Test {
         return returnString;
     }
 
+    /**
+     * calls all generators and uses eventlistWrapper
+     */
     public static void fillCSVFiles() {
 
         for (int i = 0; i < 100; i++) {

@@ -5,6 +5,10 @@ import java.io.*;
  */
 public class EventToCSV {
 
+    /**
+     * new CSV called events.csv
+     *
+     */
     public static void createCSV() {
         try {
             PrintWriter writer = new PrintWriter("events.csv");
@@ -15,6 +19,12 @@ public class EventToCSV {
         }
     }
 
+    /**
+     * columns:
+     * name, date, location, costOfTicket, organizer
+     *
+     * @param event
+     */
     public static void addEvent(Event event) {
         StringBuilder entryBuilder = new StringBuilder();
         entryBuilder.append(event.getName() + "," + event.getDate() + "," + event.getLocation() +
