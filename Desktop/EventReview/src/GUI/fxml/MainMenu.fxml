@@ -5,12 +5,30 @@
 <?import javafx.scene.layout.*?>
 
 
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.Button?>
 <GridPane fx:controller="GUI.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
           styleClass="root">
     <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
 
 
+    <Text text="MENU" textAlignment="CENTER"
+          GridPane.columnIndex="0" GridPane.rowIndex="0"
+          GridPane.columnSpan="2"/>
+
+    <Button text="New Event"
+            onAction="#addEvent"/>
+    <Button text="New Event Rating"
+            onAction="#addEventRating"/>
+    <Button text="import Events from CSV"
+            onAction="#loadEventCSVFile"/>
+    <Button text="Load events"
+            onAction="#loadEventRatingsCSVFile"/>
+    <Button text="Load ratings"
+            onAction="#loadEventRatingsCSVFile"/>
+    <Button text="Load ratings"
+            onAction="#loadEventRatingsCSVFile"/>
 
 
 </GridPane>
