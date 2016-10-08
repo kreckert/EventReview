@@ -21,7 +21,10 @@ public class ApplicationMenu extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("GUI/fxml/MainMenu.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getClassLoader().getResource("GUI/fxml/MainMenu.fxml"));
+        Parent root = (Parent) loader.load();
+        MyController myController=(MyController) loader.getController();
+        myController.setStage(primaryStage);
         Scene scene = new Scene(root,350,400);
         primaryStage.setScene(scene);
         primaryStage.setTitle("Event Reviewer");
