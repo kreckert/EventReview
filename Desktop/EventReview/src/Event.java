@@ -102,4 +102,8 @@ public class Event {
         }
         return (score/ratings.size());
     }
+
+    public String toString() {
+        return name + date + location + ratings.size();
+    }
 }

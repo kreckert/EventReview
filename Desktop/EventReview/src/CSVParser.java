@@ -9,7 +9,7 @@ import java.util.*;
 public class CSVParser {
 
     private Map<String,Event> events; //String is Event Name, Event name is unique
-    private List<EventRating> ratings;//String is Event Name, Event name is unique
+    private ArrayList<EventRating> ratings;//String is Event Name, Event name is unique
     private BufferedReader bufferedReader;
 
 
@@ -61,7 +61,7 @@ public class CSVParser {
      * @param ratingsCSVFile the csv file
      * @return Returns all the ratings in a arrayList
      */
-    public List<EventRating> parseEventRatings(String ratingsCSVFile) {
+    public ArrayList<EventRating> parseEventRatings(String ratingsCSVFile) {
         if (ratingsCSVFile != null) {
             String line;
 
