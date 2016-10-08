@@ -26,19 +26,19 @@ public class RatingsListCSV {
         }
     }
 
-    public static void addRating(EventRating eventRating, Event event) {
+    public static void addRating(EventRating rating) {
 
-        String eventName = event.getName().replaceAll("\\s+", "-").toLowerCase();
+        String eventName = rating.getEvent().getName().replaceAll("\\s+", "-").toLowerCase();
         PrintWriter writer = null;
 
         try {
             writer = new PrintWriter(new FileWriter("ratings-for-" + eventName + ".csv", true));
 
             StringBuilder entry = new StringBuilder();
-            entry.append(event.getName());
-            entry.append(eventRating.getAuthor());
-            entry.append(eventRating.getScore());
-            entry.append(eventRating.getComment());
+            entry.append(rating.getEvent().getName());
+            entry.append(rating.getAuthor());
+            entry.append(rating.getRating());
+            entry.append(rating.getComment());
 
             writer.println(entry.toString());
 

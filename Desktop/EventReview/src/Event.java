@@ -11,6 +11,7 @@ public class Event {
 
     //criteria for rating
     private String date;
+    private String location;
     private int costOfTicket;
     private String organizer;
 
@@ -19,6 +20,7 @@ public class Event {
         this.name = name;
         //default values
         date = "";
+        location = "";
         costOfTicket = -1;
         organizer = "";
     }
@@ -35,6 +37,10 @@ public class Event {
         this.date = date;
     }
 
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     public void setCostOfTicket(int costOfTicket) {
         this.costOfTicket = costOfTicket;
     }
@@ -45,6 +51,10 @@ public class Event {
 
     public String getDate() {
         return date;
+    }
+
+    public String getLocation() {
+        return location;
     }
 
     public ArrayList<EventRating> getRatings() {
