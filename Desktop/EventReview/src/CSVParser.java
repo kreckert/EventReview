@@ -9,20 +9,20 @@ import java.util.*;
 public class CSVParser {
 
     private Map<String,Event> events; //String is Event Name, Event name is unique
-    private Map<String,EventRating> ratings;//String is Event Name, Event name is unique
+    private List<EventRating> ratings;//String is Event Name, Event name is unique
     private BufferedReader bufferedReader;
 
 
     public CSVParser() {
         events = new HashMap<>();
-        ratings = new HashMap<>();
+        ratings = new ArrayList<>();
     }
 
     /**
      * Parses a csv file which includes all the events
      *
      * @param eventCSVFile the csv file
-     * @return Returns all the events in a arrayList
+     * @return Returns all the events in a hashMap
      */
     public Map<String,Event> parseEvents(String eventCSVFile) {
         if (eventCSVFile != null) {
@@ -58,7 +58,7 @@ public class CSVParser {
      * Parses a csv file which includes all the ratings
      *
      * @param ratingsCSVFile the csv file
-     * @return Returns all the events in a arrayList
+     * @return Returns all the ratings in a arrayList
      */
     public List<EventRating> parseEventRatings(String ratingsCSVFile) {
         if (ratingsCSVFile != null) {
@@ -69,23 +69,38 @@ public class CSVParser {
                 bufferedReader = new BufferedReader(new FileReader(ratingsCSVFile));
                 while ((line = bufferedReader.readLine()) != null) {
 
-                    List<String> eventAttributes = Arrays.asList(line.split("\\s*,\\s*"));
+                    List<String> eventAttributes = Arrays.asList(line.split("\\s*,\\s*"));  //Parse Line
+
                     String eventName = eventAttributes.get(0);
                     String author = eventAttributes.get(1);
                     int score = Integer.valueOf(eventAttributes.get(2));
                     String comment = eventAttributes.get(3);
 
-                    EventRating rating = new EventRating(score,author,comment);
+                    EventRating rating = new EventRating(eventName,author,score,comment);   //Create EventRating
 
-                    events.add(event);
+                    ratings.add(rating);
                 }
             } catch (IOException | IllegalArgumentException e) {
                 e.printStackTrace();
             }
-            return events;
+            return ratings;
         }
         return null;
     }
-*/
 
+    /**
+     * Add the ratings in the events*/
+    public Map<String,Event> assignRatingsToEvents(Map<String,Event> events, ArrayList<EventRating> ratings) {
+        if (events != null && ratings != null) {
+            HashMap<String, Event> eventsTemp = (HashMap) events;
+
+            for (EventRating e : ratings) {
+                Event event = eventsTemp.get(e.getEventName());
+                event.addRating(e);
+            }
+
+            return eventsTemp;
+        }
+        return null;
+    }
 }
