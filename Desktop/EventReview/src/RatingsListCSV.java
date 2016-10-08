@@ -35,9 +35,9 @@ public class RatingsListCSV {
             writer = new PrintWriter(new FileWriter("ratings-for-" + eventName + ".csv", true));
 
             StringBuilder entry = new StringBuilder();
-            entry.append(rating.getEventName());
-            entry.append(rating.getAuthor());
-            entry.append(rating.getRatingScore());
+            entry.append(rating.getEventName() + ",");
+            entry.append(rating.getAuthor() + ",");
+            entry.append(rating.getRatingScore() + ",");
             entry.append(rating.getComment());
 
             writer.println(entry.toString());
