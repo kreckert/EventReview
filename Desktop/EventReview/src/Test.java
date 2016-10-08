@@ -8,6 +8,7 @@ public class Test {
     public static void main(String[] args) {
 
         EventToCSV.createCSV();
+        RatingsListCSV.createCSV();
 
         for (int i = 0; i < 100; i++) {
 
@@ -20,14 +21,12 @@ public class Test {
             event.setOrganizer("ORG" + generateName());
             EventToCSV.addEvent(event);
 
-            RatingsListCSV.createCSVForEvent(event);
-
             //creates random event rating
             for (int j = 0; j < 100; j++) {
 
                 EventRating eventRating = new EventRating(eventName, "AUTH" + generateName(),
                        generateRating() , "COM" + generateName());
-                RatingsListCSV.addRating(eventRating);
+                RatingsListCSV.addEventRating(eventRating);
 
             }
         }

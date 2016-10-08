@@ -8,6 +8,7 @@ import java.io.PrintWriter;
  */
 public class RatingsListCSV {
 
+    /**
     public static void createCSVForEvent(Event event) {
 
         String eventName = event.getName().replaceAll("\\s+", "-").toLowerCase();
@@ -54,5 +55,35 @@ public class RatingsListCSV {
     public static void main(String[] args) {
         Event hackTheBubble = new Event("Hack the Bubble");
         createCSVForEvent(hackTheBubble);
+    }
+     */
+
+    public static void createCSV() {
+        try {
+            PrintWriter writer = new PrintWriter("eventRatings.csv");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void addEventRating(EventRating rating) {
+        StringBuilder entryBuilder = new StringBuilder();
+        entryBuilder.append(rating.getEventName() + "," + rating.getAuthor() + "," + rating.getRatingScore() +
+                "," + rating.getComment());
+
+        PrintWriter writer = null;
+
+        try {
+            writer = new PrintWriter(new FileWriter("eventRatings.csv", true));
+            writer.println(entryBuilder.toString());
+            writer.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (writer != null) {
+                writer.close();
+            }
+        }
     }
 }
