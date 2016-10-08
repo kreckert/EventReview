@@ -22,6 +22,7 @@ public class UserForm {
         event.setOrganizer(scan.next());
 
         EventToCSV.addEvent(event);
+        RatingsListCSV.createCSVForEvent(event);
     }
 
     public void rateEvent() {
