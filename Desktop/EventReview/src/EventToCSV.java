@@ -12,8 +12,6 @@ public class EventToCSV {
     public static void createCSV() {
         try {
             PrintWriter writer = new PrintWriter("events.csv");
-            // writer.println("name,date,location,costOfTicket,organizer");
-            // writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
