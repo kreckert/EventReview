@@ -19,23 +19,6 @@ public class Event {
         numOfRatings = 0;
     }
 
-    public void addRating(int userRating) {
-
-        if (userRating >= 0 && userRating <= 1) {
-
-            rating = ((rating * numOfRatings) + userRating)/(numOfRatings + 1);
-            numOfRatings++;
-        }
-    }
-
-    public int getRating() {
-        return rating;
-    }
-
-    public int getNumOfRatings() {
-        return numOfRatings;
-    }
-
     public String getName() {
         return name;
     }
@@ -50,5 +33,14 @@ public class Event {
 
     public String getOrganizer() {
         return organizer;
+    }
+
+    public void addRating(int userRating) {
+
+        if (userRating >= 0 && userRating <= 1) {
+
+            rating = ((rating * numOfRatings) + userRating)/(numOfRatings + 1);
+            numOfRatings++;
+        }
     }
 }
