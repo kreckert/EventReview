@@ -13,7 +13,7 @@ public class RatingsListToCSV {
 
         try {
             writer = new PrintWriter("ratings-for-" + eventName + ".csv");
-            writer.print("name,score,comment");
+            writer.print("event-name,author,score,comment");
             writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -34,6 +34,7 @@ public class RatingsListToCSV {
 
             StringBuilder entry = new StringBuilder();
             entry.append(event.getName());
+            entry.append(eventRating.getAuthor());
             entry.append(eventRating.getScore());
             entry.append(eventRating.getComment());
 
