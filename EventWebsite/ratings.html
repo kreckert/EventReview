@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Event Review</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+
+        <link rel="import" href="imports.html" />
+        
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <nav>
+            <div class="nav-wrapper">
+                <a href="#" class="brand-logo">Event Review</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container" ng-app="eventListApp" ng-controller="eventListController">
+            <ul class="collapsible">
+                <li ng-repeat="event in events">
+                    <div class="collapsible-header">{{event.split(",")[0]}}</div>
+                    <div class="collapsible-body">
+                        <p>Date: {{event.split(",")[1]}}<br>
+                        Location: {{event.split(",")[2]}}<br>
+                        Ticket Price: £{{event.split(",")[3]}}<br>
+                        Organised by: {{event.split(",")[4]}}<br>
+                        <a href="#">Reviews</a></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        
+    </body>
+</html>

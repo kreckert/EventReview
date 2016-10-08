@@ -72,6 +72,7 @@ public class Event {
     public String getOrganizer() {
         return organizer;
     }
+
     public boolean addRating(EventRating eventRating) {
         if(eventRating != null) {
             ratings.add(eventRating);
@@ -101,5 +102,13 @@ public class Event {
             score += rating.getRatingScore();
         }
         return (score/ratings.size());
+    }
+
+    /**
+     * simple for testing purposes
+     * @return
+     */
+    public String toString() {
+        return name + date + location + " " +ratings.size();
     }
 }

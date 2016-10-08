@@ -58,6 +58,10 @@ public class RatingsListCSV {
     }
      */
 
+    /**
+     * creates new files named eventRatings.csv
+     *
+     */
     public static void createCSV() {
         try {
             PrintWriter writer = new PrintWriter("eventRatings.csv");
@@ -66,6 +70,12 @@ public class RatingsListCSV {
         }
     }
 
+    /**
+     * makes CSV called eventRatings.csv
+     * EventName, Author, RatingScore, Comment
+     *
+     * @param rating
+     */
     public static void addEventRating(EventRating rating) {
         StringBuilder entryBuilder = new StringBuilder();
         entryBuilder.append(rating.getEventName() + "," + rating.getAuthor() + "," + rating.getRatingScore() +

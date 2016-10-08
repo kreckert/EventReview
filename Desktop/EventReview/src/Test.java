@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 /**
@@ -5,47 +8,39 @@ import java.util.Random;
  */
 public class Test {
 
+    private static EventListWrapper eventListWrapper;
+
     public static void main(String[] args) {
 
-        EventToCSV.createCSV();
-        RatingsListCSV.createCSV();
-
-        for (int i = 0; i < 100; i++) {
-
-            //creates random event
-            String eventName = "EVENT" + generateName();
-            Event event = new Event(eventName);
-            event.setDate(generateDate());
-            event.setLocation("LOC" + generateName());
-            event.setCostOfTicket(generateCost());
-            event.setOrganizer("ORG" + generateName());
-            EventToCSV.addEvent(event);
-
-            //creates random event rating
-            for (int j = 0; j < 100; j++) {
-
-                EventRating eventRating = new EventRating(eventName, "AUTH" + generateName(),
-                       generateRating() , "COM" + generateName());
-                RatingsListCSV.addEventRating(eventRating);
-
-            }
-        }
-
-        CSVParser parser = new CSVParser();
-
-        parser.parseEvents("events.csv");
+        eventListWrapper = new EventListWrapper();
+        fillCSVFiles();
     }
 
+    /**
+     * generates a price
+     *
+     * @return
+     */
     public static int generateCost() {
 
         return (int) Math.floor(Math.random() * 50);
     }
 
+    /**
+     * 0-10
+     *
+     * @return
+     */
     public static int generateRating() {
 
         return (int) Math.floor(Math.random() * 11);
     }
 
+    /**
+     * any month in 2016
+     *
+     * @return
+     */
     public static String generateDate() {
 
         int day = (int) Math.floor(Math.random() * 30) + 1;
@@ -54,6 +49,11 @@ public class Test {
         return day + "-" + month + "-" + "2016";
     }
 
+    /**
+     * any random 5 characters
+     *
+     * @return
+     */
     public static String generateName() {
 
         Random r = new Random();
@@ -63,5 +63,35 @@ public class Test {
             returnString = returnString + alphabet.charAt(r.nextInt(alphabet.length()));
         }
         return returnString;
+    }
+
+    /**
+     * calls all generators and uses eventlistWrapper
+     */
+    public static void fillCSVFiles() {
+
+        for (int i = 0; i < 100; i++) {
+
+            //creates random event
+
+            String name = "EVENT" + generateName();
+            String date = generateDate();
+            String location = "LOC" + generateName();
+            int ticketCost = generateCost();
+            String organizer = "ORG" + generateName();
+
+            eventListWrapper.addEvent(name, date, location, ticketCost, organizer);
+
+            //creates random event rating
+            for (int j = 0; j < 100; j++) {
+
+                String author = "AUTH" + generateName();
+                int rating = generateRating();
+                String comment = "COM" + generateName();
+
+                eventListWrapper.addRating(name, author, rating, comment);
+
+            }
+        }
     }
 }
