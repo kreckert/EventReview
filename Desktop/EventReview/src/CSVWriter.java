@@ -10,7 +10,7 @@ public class CSVWriter {
 
         try {
             PrintWriter writer = new PrintWriter("events.csv");
-            writer.print("name,");
+            writer.print("name,rating,numOfRatings,friendsGoing,costOfTicket,organizer");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
