@@ -17,10 +17,8 @@ public class EventToCSV {
 
     public static void addEvent(Event event) {
         StringBuilder entryBuilder = new StringBuilder();
-        entryBuilder.append(event.getName() + ",");
-        entryBuilder.append(event.getDate() + ",");
-        entryBuilder.append(event.getCostOfTicket() + ",");
-        entryBuilder.append(event.getOrganizer() + ",");
+        entryBuilder.append(event.getName() + "," + event.getDate() + "," +
+                event.getCostOfTicket() + "," + event.getOrganizer());
 
         PrintWriter writer = null;
 
