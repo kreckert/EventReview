@@ -10,8 +10,8 @@ public class EventListWrapper {
 
     private CSVParser csvParser;
 
-    private Map<String,Event> events;
-    private ArrayList<EventRating> ratings;
+    private Map<String,Event> events; // String is Event Name, Event name is unique
+    private ArrayList<EventRating> ratings; // String is Event Name, Event name is unique
 
     private static final String EVENTS_FILE_NAME = "events.csv";
     private static final String EVENTRATINGS_FILE_NAME = "eventRatings.csv";
@@ -74,8 +74,27 @@ public class EventListWrapper {
         updateLists();
     }
 
-    public Event findEvents(){
+    /**
+     * returns event depending on key in hashmap
+     * @param eventName
+     * @return
+     */
+    public Event findEvent(String eventName) {
 
-        return null;
+        return events.get(eventName);
+    }
+
+    public ArrayList<EventRating> getRatings(String eventName) {
+
+        ArrayList<EventRating> returnList = new ArrayList<>();
+
+        for (EventRating eventRating :
+                ratings) {
+            if (eventRating.getEventName().equals(eventName)){
+                returnList.add(eventRating);
+            }
+        }
+
+        return returnList;
     }
 }
