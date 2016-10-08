@@ -5,6 +5,14 @@ package Application;
  */
 public class EventListWrapper {
 
+    private CSVParser csvParser;
+
+    private Map<String,Event> events;
+    private ArrayList<EventRating> ratings;
+
+    private static final String EVENTS_FILE_NAME = "events.csv";
+    private static final String EVENTRATINGS_FILE_NAME = "eventRatings.csv";
+
     /**
      * creates event and Ratings file
      */
@@ -13,6 +21,13 @@ public class EventListWrapper {
         //creates both csv files
         EventToCSV.createCSV();
         RatingsListCSV.createCSV();
+        updateLists();
+    }
+
+    public void updateLists() {
+        events = csvParser.parseEvents(EVENTS_FILE_NAME);
+        ratings = csvParser.parseEventRatings(EVENTRATINGS_FILE_NAME);
+        events = csvParser.assignRatingsToEvents(events, ratings);
 
     }
 
@@ -37,6 +52,7 @@ public class EventListWrapper {
 
         //adds to csv
         EventToCSV.addEvent(event);
+        updateLists();
     }
 
 
@@ -52,5 +68,11 @@ public class EventListWrapper {
 
         EventRating eventRating = new EventRating(eventName, author, rating, comment);
         RatingsListCSV.addEventRating(eventRating);
+        updateLists();
+    }
+
+    public Event findEvents(){
+
+        return null;
     }
 }
