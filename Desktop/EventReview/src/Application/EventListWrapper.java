@@ -26,13 +26,13 @@ public class EventListWrapper {
         //creates both csv files
         EventToCSV.createCSV();
         RatingsListCSV.createCSV();
+        csvParser = new CSVParser();
         events = new HashMap<>();
         ratings = new ArrayList<>();
     }
 
     public void updateEvents() {
 
-        csvParser.parseEvents(EVENTS_FILE_NAME);
         events = csvParser.parseEvents(EVENTS_FILE_NAME);
     }
 
@@ -63,7 +63,6 @@ public class EventListWrapper {
 
         //adds to csv
         EventToCSV.addEvent(event);
-        //updateEvents();
     }
 
 
@@ -79,7 +78,6 @@ public class EventListWrapper {
 
         EventRating eventRating = new EventRating(eventName, author, rating, comment);
         RatingsListCSV.addEventRating(eventRating);
-        //updateRatings();
     }
 
     /**
@@ -89,11 +87,14 @@ public class EventListWrapper {
      */
     public Event findEvent(String eventName) {
 
+        updateEvents();
         return events.get(eventName);
     }
 
     public ArrayList<EventRating> getRatings(String eventName) {
 
+        updateEvents();
+        updateRatings();
         ArrayList<EventRating> returnList = new ArrayList<>();
 
         for (EventRating eventRating :
