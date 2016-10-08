@@ -1,3 +1,5 @@
+package Application;
+
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -9,7 +11,7 @@ import java.io.PrintWriter;
 public class RatingsListCSV {
 
     /**
-    public static void createCSVForEvent(Event event) {
+    public static void createCSVForEvent(Application.Event event) {
 
         String eventName = event.getName().replaceAll("\\s+", "-").toLowerCase();
         PrintWriter writer = null;
@@ -27,7 +29,7 @@ public class RatingsListCSV {
         }
     }
 
-    public static void addRating(EventRating rating) {
+    public static void addRating(Application.EventRating rating) {
 
         String eventName = rating.getEventName().replaceAll("\\s+", "-").toLowerCase();
         PrintWriter writer = null;
@@ -53,7 +55,7 @@ public class RatingsListCSV {
     }
 
     public static void main(String[] args) {
-        Event hackTheBubble = new Event("Hack the Bubble");
+        Application.Event hackTheBubble = new Application.Event("Hack the Bubble");
         createCSVForEvent(hackTheBubble);
     }
      */

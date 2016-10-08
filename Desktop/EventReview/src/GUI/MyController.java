@@ -4,6 +4,8 @@ package GUI;
  * Created by td41 on 08/10/16.
  */
 
+import Application.EventListWrapper;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 
@@ -25,31 +27,33 @@ public class MyController implements Initializable {
     @FXML
     Parent root;
     @FXML
-    private TextField nameField, ticketPriceField, organizerField, locationField;   //Event attributes
+    private TextField nameField, ticketPriceField, organizerField, locationField;   //Application.Event attributes
     @FXML
     private DatePicker dateField;
     @FXML
     private Text resultField;
 
     @FXML
-    private TextField eventNameField, authorField;   //EventRating attributes
+    private TextField eventNameField, authorField;   //Application.EventRating attributes
     @FXML
     private TextArea commentArea;
     @FXML
     private ComboBox<Integer> rateCombo;
+
+
     private Stage primaryStage;
     private Scene[] scenes;
+    private EventListWrapper csvWrapper;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        //
+        csvWrapper = new EventListWrapper();
     }
 
     public void setStageAndScenes(Stage stage, Scene[] scenes) {
         this.primaryStage = stage;
         this.scenes = scenes;
     }
-
 
     @FXML
     public void loadEventCSVFile(ActionEvent event) {
@@ -92,4 +96,42 @@ public class MyController implements Initializable {
             primaryStage.setScene(scenes[0]);
         }
     }
+
+    @FXML
+    private boolean addEventToCSV(ActionEvent event)  {
+
+        try {
+            String name = nameField.getText();
+            String location = locationField.getText();
+            String organizer = organizerField.getText();
+            Integer ticketCost = Integer.valueOf(ticketPriceField.getText());
+            String date = dateField.toString();
+
+            csvWrapper.addEvent(name,date,location,ticketCost,organizer);
+            return true;
+        } catch (IllegalArgumentException e) {
+
+        }
+        return false;
+    }
+
+    @FXML
+    public boolean addRatingToCSV(ActionEvent event) {
+        try {
+            String name = eventNameField.getText();
+            String authorName = authorField.getText();
+            String comments = commentArea.getText();
+            Integer rate = rateCombo.getValue();
+
+            csvWrapper.addRating(name,authorName,rate,comments);
+            return true;
+        } catch (IllegalArgumentException e) {
+
+        }
+        return false;
+    }
+
+
+
+
 }

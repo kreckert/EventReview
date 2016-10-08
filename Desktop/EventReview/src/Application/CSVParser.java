@@ -1,3 +1,5 @@
+package Application;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,8 +10,8 @@ import java.util.*;
  */
 public class CSVParser {
 
-    private Map<String,Event> events; //String is Event Name, Event name is unique
-    private ArrayList<EventRating> ratings;//String is Event Name, Event name is unique
+    private Map<String,Event> events; //String is Application.Event Name, Application.Event name is unique
+    private ArrayList<EventRating> ratings;//String is Application.Event Name, Application.Event name is unique
     private BufferedReader bufferedReader;
 
 
@@ -77,7 +79,7 @@ public class CSVParser {
                     int score = Integer.valueOf(eventAttributes.get(2));
                     String comment = eventAttributes.get(3);
 
-                    EventRating rating = new EventRating(eventName,author,score,comment);   //Create EventRating
+                    EventRating rating = new EventRating(eventName,author,score,comment);   //Create Application.EventRating
 
                     ratings.add(rating);
                 }
