@@ -1,4 +1,6 @@
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
@@ -13,7 +15,7 @@ public class RatingsListCSV {
 
         try {
             writer = new PrintWriter("ratings-for-" + eventName + ".csv");
-            writer.print("event-name,author,score,comment");
+            writer.println("event-name,author,score,comment");
             writer.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -30,7 +32,7 @@ public class RatingsListCSV {
         PrintWriter writer = null;
 
         try {
-            writer = new PrintWriter("ratings-for-" + eventName + ".csv");
+            writer = new PrintWriter(new FileWriter("ratings-for-" + eventName + ".csv", true));
 
             StringBuilder entry = new StringBuilder();
             entry.append(event.getName());
@@ -38,9 +40,9 @@ public class RatingsListCSV {
             entry.append(eventRating.getScore());
             entry.append(eventRating.getComment());
 
-            writer.print(entry.toString());
+            writer.println(entry.toString());
 
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             if (writer != null) {
